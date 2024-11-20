@@ -16,16 +16,18 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools-scm
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - mercurial
     - dulwich >=0.21.6,<0.23.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - hggit
   commands:
